@@ -9,6 +9,7 @@
         @focus="onFocus()"
         @blur="onBlur()"
         @change="onChange"
+	@keydown="onKeyDown"
         @keypress="onKeyPress"
         @keyup="onKeyUp"
     />
@@ -184,6 +185,14 @@
              */
             onChange() {
               this.$emit('change', this.autocompleteText);
+            },
+	    
+	    /**
+             * When a key gets pressed
+             * @param  {Event} event A keypress event
+             */
+            onKeyDown(event) {
+              this.$emit('keydown', event);
             },
 
             /**
